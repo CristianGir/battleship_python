@@ -16,21 +16,21 @@ class ListDE:
                 temp = temp.next
             return count
 
-    def add(self, pet:Pet):
+    def add(self, data: Ship):
         if self.head is None:
-            self.head = Node(pet)
+            self.head = Node(data)
         else:
             temp = self.head
             while temp.next is not None:
                 temp = temp.next
-            temp.next = Node(pet)
+            temp.next = Node(data)
 
-    def add_to_start(self, pet:Pet):
+    def add_to_start(self, data: Ship):
         if self.head is None:
-            self.head = Node(pet)
+            self.head = Node(data)
         else:
             temp = self.head
-            self.head = Node(pet)
+            self.head = Node(data)
             self.head.next = temp
 
     def validate_existing_coordinate(self):
