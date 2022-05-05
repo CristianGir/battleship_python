@@ -1,12 +1,9 @@
-from flask import Flask
+from flask import Flask, json, Response
+
+from controller.list_de_controller import app_listde
 
 app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
-
+app.register_blueprint(app_listde)
 
 if __name__ == '__main__':
     app.run()

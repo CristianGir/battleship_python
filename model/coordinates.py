@@ -1,9 +1,9 @@
 
 class Coordinates:
-    def __init__(self, x, y, condition):
+    def __init__(self, x, y, state):
         self.x = x
         self.y = y
-        self.condition = condition
+        self.state = state
 
     def coordinate(self):
         pass

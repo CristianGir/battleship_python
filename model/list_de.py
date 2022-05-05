@@ -1,40 +1,53 @@
 from .ship import Ship
-from .node import Node
+from .node_de import NodeDE
 
 class ListDE:
     def __init__(self):
         self.head = None
+        self.count = 0
 
-    def count(self):
-        if self.head is None:
-            return 0
-        else:
+    def enlist(self):
+        list = []
+        if self.head is not None:
             temp = self.head
-            count = 1
-            while temp.next is not None:
-                count += 1
+            while temp is not None:
+                list.append(temp.data)
                 temp = temp.next
-            return count
+            return list
+        else:
+            raise Exception("La lista está vacía.")
 
-    def add(self, data: Ship):
+    def add(self, ship):
         if self.head is None:
-            self.head = Node(data)
+            new_node = NodeDE(ship)
+            self.head = new_node
         else:
             temp = self.head
             while temp.next is not None:
                 temp = temp.next
-            temp.next = Node(data)
+            new_node = NodeDE(ship)
+            temp.next = new_node
+            new_node.previous = temp
+        self.count += 1
 
-    def add_to_start(self, data: Ship):
+    def add_first(self, ship):
         if self.head is None:
-            self.head = Node(data)
+            new_node = NodeDE(ship)
+            self.head = new_node
         else:
-            temp = self.head
-            self.head = Node(data)
-            self.head.next = temp
-
-    def validate_existing_coordinate(self):
-        pass
+            new_node = NodeDE(ship)
+            new_node.next = self.head
+            self.head.previous = new_node
+            self.head = new_node
+        self.count += 1
 
     def clone_list(self):
-        pass
+        if self.head is not None:
+            new_list = ListDE()
+            temp = self.head
+            while temp is not None:
+                new_list.add(temp.data)
+                temp = temp.next
+            return new_list
+        else:
+            raise Exception("La lista está vacía.")

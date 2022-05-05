@@ -1,9 +1,6 @@
 
 class Ship:
-    def __init__(self, id, name, boxes_number):
-        self.id = id
-        self.name = name
-        self.boxes_number = boxes_number
+    def __init__(self, my_dict):
+        for key in my_dict:
+            setattr(self, key, my_dict[key])
 
-    def ship(self):
-        pass

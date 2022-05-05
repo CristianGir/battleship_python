@@ -1,11 +1,11 @@
 from model.ship import Ship
 
-class Node:
+class NodeDE:
     def __init__(self, data: Ship):
         self.data = data
         self.next = None
         self.previous = None
 
-    def node(self):
-        return Node(self.data)
+    def NodeDE(self, data):
+        self.data = data
     
