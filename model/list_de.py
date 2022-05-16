@@ -1,4 +1,3 @@
-from .ship import Ship
 from .node_de import NodeDE
 
 class ListDE:
@@ -51,3 +50,14 @@ class ListDE:
             return new_list
         else:
             raise Exception("La lista está vacía.")
+
+    def verify_existing_coordinates(self, coordinates):
+        if self.head is not None:
+            temp = self.head
+            while temp is not None:
+                if temp.data.orientation != 0:
+                    for coord in coordinates:
+                        if temp.data.validate_existing_coordinate(coord):
+                            return True
+                temp = temp.next
+        return False

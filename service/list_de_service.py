@@ -1,6 +1,5 @@
 from model.list_de import ListDE
 
-
 class ListDEService:
     def __init__(self):
         self.list = ListDE()
